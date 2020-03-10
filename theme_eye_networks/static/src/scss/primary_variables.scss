@@ -1,0 +1,92 @@
+$o-theme-font-size-base: 1rem;
+
+//------------------------------------------------------------------------------
+// Colors
+//------------------------------------------------------------------------------
+
+// Theme colors
+$-palettes: (
+    (
+        'alpha': #F3E763,
+        'beta': #FEC65E,
+        'gamma': #738D54,
+        'delta': #13544E,
+        'epsilon': #41261A,
+
+    ),()
+);
+
+$o-theme-color-palettes: ();
+@each $-palette in $-palettes {
+    $o-theme-color-palettes: append($o-theme-color-palettes, map-merge($-palette, (
+        'primary':      map-get($-palette, 'alpha'),
+        'secondary':    map-get($-palette, 'beta'),
+        'success':      map-get($-palette, 'gamma'),
+        'info':         map-get($-palette, 'gamma'),
+        'warning':      map-get($-palette, 'delta'),
+        'danger' :      map-get($-palette, 'epsilon'),
+    )));
+}
+
+// Grays
+$o-gray-color-palettes: ();
+@each $-palette in $o-theme-color-palettes {
+    $o-gray-color-palettes: append($o-gray-color-palettes, (
+        'black': #000000,
+        '900': lighten(#000, 40%),
+        '600': lighten(#000, 70%),
+        '200': lighten(#000, 80%),
+        'white': #FFFFFF,
+    ));
+}
+
+// Colors
+$o-color-palettes: ();
+
+@each $-palette in $o-theme-color-palettes {
+    $o-color-palettes: append($o-color-palettes, (
+        'body':         map-get($-palette, 'alpha'),
+        'menu':         map-get($-palette, 'delta'),
+        'footer':       map-get($-palette, 'delta'),
+        'text':         map-get($-palette, 'delta'),
+        'h1':           map-get($-palette, 'beta'),
+        'h2':           map-get($-palette, 'gamma'),
+        'h3':           map-get($-palette, 'gamma'),
+        'h4':           map-get($-palette, 'gamma'),
+        'h5':           map-get($-palette, 'beta'),
+    ));
+}
+
+
+//------------------------------------------------------------------------------
+// Fonts
+//------------------------------------------------------------------------------
+
+$o-theme-fonts: (
+
+    ('Ubuntu', sans-serif),
+    ('Pacifico', cursive),
+
+);
+$o-theme-font-urls: (
+
+    'Ubuntu:400,400i,700,700i',
+    'Pacifico',
+
+);
+$o-theme-font-names: (
+
+    'Ubuntu',
+    'Pacifico',
+
+);
+
+
+//------------------------------------------------------------------------------
+// Website customizations
+//------------------------------------------------------------------------------
+
+$o-theme-font-number: 1;
+$o-theme-buttons-font-number: 1;
+$o-theme-headings-font-number: 2;
+$o-theme-navbar-font-number: 2;
